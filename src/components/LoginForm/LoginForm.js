@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { fetchUsers, loginUser } from "../../api/api";
-
+import {
+  Button,
+  InputGroup,
+  FormControl,
+  Container,
+  Jumbotron
+} from "react-bootstrap";
+import "./LoginForm.css";
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -35,32 +42,34 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div data-testid="loginForm">
-        <h2 className="loginForm__heading">Login</h2>
-        <section className="loginForm__form">
-          <h3>USERNAME</h3>
-          <input
-            name="username"
-            type="string"
-            onChange={this.handleLoginChange}
-            value={this.state.username}
-            placeholder="Username"
-            required
-          />
-          <h3>PASSWORD</h3>
-          <input
-            name="password"
-            type="string"
-            onChange={this.handleLoginChange}
-            value={this.state.password}
-            placeholder="Password"
-            required
-          />
-          <button onClick={this.loginSubmit}>Login!</button>
-          <button onClick={this.createNewAccount}>Create new Account!</button>
+      <Jumbotron fluid>
+        <Container>
+          <h2>Login</h2>
+          <InputGroup>
+            <FormControl
+              name="username"
+              type="string"
+              onChange={this.handleLoginChange}
+              value={this.state.username}
+              placeholder="Username"
+              required
+            />
+          </InputGroup>
+          <InputGroup>
+            <FormControl
+              name="password"
+              type="string"
+              onChange={this.handleLoginChange}
+              value={this.state.password}
+              placeholder="Password"
+              required
+            />
+          </InputGroup>
+          <Button onClick={this.loginSubmit}>Login</Button>
+          <Button onClick={this.createNewAccount}>Create new Account</Button>
           <p>{this.state.message}</p>
-        </section>
-      </div>
+        </Container>
+      </Jumbotron>
     );
   }
 }
