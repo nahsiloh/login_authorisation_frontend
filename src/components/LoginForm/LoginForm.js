@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { fetchUsers, loginUser } from "../../api/api";
+import { Link } from "react-router-dom";
+import { loginUser } from "../../api/api";
+import "./LoginForm.css";
 import {
   Button,
   InputGroup,
@@ -7,7 +9,7 @@ import {
   Container,
   Jumbotron
 } from "react-bootstrap";
-import "./LoginForm.css";
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,6 @@ class LoginForm extends Component {
   };
 
   loginSubmit = async () => {
-    console.log(await fetchUsers);
     try {
       const { username, password } = this.state;
       await loginUser(username, password);
@@ -36,15 +37,11 @@ class LoginForm extends Component {
     }
   };
 
-  createNewAccount = () => {
-    this.props.history.push("/createUser");
-  };
-
   render() {
     return (
       <Jumbotron fluid>
         <Container>
-          <h2>Login</h2>
+          <h2>User Login</h2>
           <InputGroup>
             <FormControl
               name="username"
@@ -65,8 +62,12 @@ class LoginForm extends Component {
               required
             />
           </InputGroup>
-          <Button onClick={this.loginSubmit}>Login</Button>
-          <Button onClick={this.createNewAccount}>Create new Account</Button>
+          <Button onClick={this.loginSubmit} data-testid="login__button">
+            Login
+          </Button>
+          <Link to="/create">
+            <Button data-testid="createAccount__button">Create Account</Button>
+          </Link>
           <p>{this.state.message}</p>
         </Container>
       </Jumbotron>
