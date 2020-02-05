@@ -1,11 +1,5 @@
 import axios from "axios";
-
 const baseURL = "http://localhost:5000";
-
-export const fetchUsers = async () => {
-  const response = await axios.get(`${baseURL}/users`);
-  return response.data;
-};
 
 export const loginUser = async (username, password) => {
   const loginDetails = { username, password };
@@ -13,4 +7,13 @@ export const loginUser = async (username, password) => {
     withCredentials: true
   });
   return login.data;
+};
+
+export const createUser = async newUser => {
+  await axios.post(`${baseURL}/users/new`, newUser, { withCredentials: true });
+};
+
+export const logout = async () => {
+  await axios.post(`${baseURL}/users/logout`, {}, { withCredentials: true });
+  return logout.data;
 };
