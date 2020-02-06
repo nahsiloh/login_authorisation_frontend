@@ -19,7 +19,7 @@ export const logout = async () => {
 };
 
 export const fetchSecret = async () => {
-  const response = await axios.get(`${baseURL}/users`, {
+  const response = await axios.get(`${baseURL}/users/message`, {
     withCredentials: true
   });
   return response.data;
