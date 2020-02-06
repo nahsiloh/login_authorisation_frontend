@@ -17,3 +17,10 @@ export const logout = async () => {
   await axios.post(`${baseURL}/users/logout`, {}, { withCredentials: true });
   return logout.data;
 };
+
+export const fetchSecret = async () => {
+  const response = await axios.get(`${baseURL}/users`, {
+    withCredentials: true
+  });
+  return response.data;
+};
