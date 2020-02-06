@@ -32,6 +32,8 @@ class LoginForm extends Component {
       const { username, password } = this.state;
       await loginUser(username, password);
       this.setState({ message: "You are logged in" });
+      this.props.checkUserAuthenticated(true);
+      this.props.history.push("/home");
     } catch (err) {
       this.setState({ message: "Invalid username or password" });
     }
