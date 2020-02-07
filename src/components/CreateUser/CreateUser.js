@@ -1,5 +1,6 @@
 import React from "react";
 import { createUser } from "../../api/api";
+import { withRouter } from "react-router-dom";
 import "./CreateUser.css";
 import {
   Jumbotron,
@@ -87,4 +88,4 @@ class CreateUser extends React.Component {
   }
 }
 
-export default CreateUser;
+export default withRouter(CreateUser);
