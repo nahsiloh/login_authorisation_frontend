@@ -37,11 +37,13 @@ class HomePage extends Component {
   displayLoginButton = () => {
     return !this.props.userHasAuthenticated ? (
       <Link to="/">
-        <Button>Login</Button>
+        <Button data-testid="login__button">Login</Button>
       </Link>
     ) : (
       <Link to="/">
-        <Button onClick={this.logoutSubmit}>Logout</Button>
+        <Button data-testid="logout__button" onClick={this.logoutSubmit}>
+          Logout
+        </Button>
       </Link>
     );
   };
