@@ -14,8 +14,12 @@ export const createUser = async newUser => {
 };
 
 export const logout = async () => {
-  await axios.post(`${baseURL}/users/logout`, {}, { withCredentials: true });
-  return logout.data;
+  const response = await axios.post(
+    `${baseURL}/users/logout`,
+    {},
+    { withCredentials: true }
+  );
+  return response.data;
 };
 
 export const fetchSecret = async () => {
