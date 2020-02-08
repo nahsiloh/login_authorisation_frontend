@@ -54,15 +54,10 @@ describe("Login Form", () => {
           <LoginForm handleLoginChange={handleLoginChange} />
         </Router>
       );
-      const username = getByPlaceholderText("Username");
-      fireEvent.change(username, {
-        target: { value: "testUser" }
-      });
 
       const userPassword = getByPlaceholderText("Password");
       fireEvent.change(userPassword, { target: { value: "pass1234" } });
 
-      expect(username.value).toBe("testUser");
       expect(userPassword.value).toBe("pass1234");
     });
   });
