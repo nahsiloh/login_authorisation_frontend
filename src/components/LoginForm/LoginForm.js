@@ -57,7 +57,7 @@ class LoginForm extends Component {
           <InputGroup>
             <FormControl
               name="password"
-              type="string"
+              type="password"
               onChange={this.handleLoginChange}
               value={this.state.password}
               placeholder="Password"
